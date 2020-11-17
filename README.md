@@ -1,1 +1,1 @@
-# Snapdelivery is a new app
+# Snapdelivery is new
