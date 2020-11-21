@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-//import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './about/about.component';
 import { ChildServiceComponent } from './child-service/child-service.component';
 import { LoginserviceService } from './login/loginservice.service';
 import {HttpModule} from '@angular/http';
@@ -27,7 +27,7 @@ import { RestregisterComponent } from './restregister/restregister.component';
     LoginComponent,
     DashboardComponent,
     ChildServiceComponent,    
-    RegisterComponent, HomeComponent, MenuComponent, AboutrestComponent, RestlogincomponentComponent, RestregisterComponent
+    RegisterComponent, HomeComponent, MenuComponent, AboutrestComponent, RestlogincomponentComponent, RestregisterComponent,AboutComponent
   ],
   imports: [
     BrowserModule,
