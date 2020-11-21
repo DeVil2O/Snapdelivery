@@ -33,7 +33,7 @@
     "mongoose": "*",
     "morgan": "*",
     "multer": "*",
-    "rxjs": "^6.0.0",
+    "rxjs": "6.0.0",
     "sweetalert2": "^7.24.4",
     "validator": "*",
     "zone.js": "^0.8.26"
