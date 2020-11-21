@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://snapdeliveryapp.herokuapp.com/",
+    "secure": false
+  }
+}

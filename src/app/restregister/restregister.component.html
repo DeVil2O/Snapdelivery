@@ -1,0 +1,59 @@
+<section id="book-a-table" class="book-a-table">
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-white">RESTAURANT &nbsp; REGISTRATION</h2>
+    </div>
+    <form name="form" (ngSubmit)="registerfun(model)" #f="ngForm" novalidate  class="php-email-form">
+      <div class="form-row justify-content-center mt-5">  
+          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+              <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" placeholder="Full Name" required />
+              <div *ngIf="f.submitted && !name.valid" class="help-block">Username is required</div>
+          </div>
+      </div>
+      <div class="form-row justify-content-center">  
+          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <!-- <label for="email">Email</label> -->
+            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Email" required />
+            <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">  
+        <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !phonenumber.valid }">
+          <!-- <label for="phonenumber">PhoneNumber</label> -->
+          <input type="number" class="form-control" name="phonenumber" [(ngModel)]="model.phonenumber" #phonenumber="ngModel" placeholder="Phone Number" required />
+          <div *ngIf="f.submitted && !phonenumber.valid" class="help-block">PhoneNumber is required</div>
+      </div>
+      </div>
+      <div class="form-row justify-content-center">  
+          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+              <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" required />
+              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+              <div class=" col-md-4 form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
+                  <input type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" placeholder="Address" required />
+                  <div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
+              </div>
+          
+          <div class=" col-md-3 form-group" [ngClass]="{ 'has-error': f.submitted && !city.valid }">
+              <input type="text" class="form-control" name="city" [(ngModel)]="model.city" #city="ngModel" placeholder="City/Town" required />
+              <div *ngIf="f.submitted && !city.valid" class="help-block">City is required</div>
+          </div>
+          <div class=" col-md-2 form-group" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
+              <input type="text" class="form-control" name="state" [(ngModel)]="model.state" #state="ngModel" placeholder="State/Province" required />
+              <div *ngIf="f.submitted && !state.valid" class="help-block">State is required</div>
+          </div>
+      </div>
+      
+
+      <div class="form-row justify-content-center">
+        <div class=" col-md-5 form-group">
+      <div class="text-center"><button  class="buttonsignup" [disabled]="loading">Register</button></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+

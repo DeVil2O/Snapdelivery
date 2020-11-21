@@ -1,0 +1,14 @@
+.book-a-table{
+    background-image: url("./../../assets/img/slide/slide-3.jpg");
+    /* background-color: black; */
+    height: 100vh;
+}
+
+.buttonsignup{
+    background: #ffb03b;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
