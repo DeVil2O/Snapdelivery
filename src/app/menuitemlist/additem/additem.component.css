@@ -1,28 +1,27 @@
 .menuinput {
-    padding-right: 10px;
-    background: #fff;
-    position: relative;
-    z-index: 3;
-    font-weight: 700;
-    color: #ff9b08;
-    border: none;
-    outline: none;
-    
-  }
-.menuinput input:focus{
-    /* border: none; */
-    outline: none;
+  padding-right: 10px;
+  background: #fff;
+  position: relative;
+  z-index: 3;
+  font-weight: 700;
+  color: #ff9b08;
+  border: none;
+  outline: none;
+}
+.menuinput input:focus {
+  /* border: none; */
+  outline: none;
 }
 
-.addbutton{
+.addbutton {
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
-.addbutton button{
-padding: 0 10px;
-background-color: #ff9b08;
-border: none;
-color: white;
-border-radius: 25%;
+.addbutton button {
+  padding: 0 10px;
+  background-color: #ff9b08;
+  border: none;
+  color: white;
+  border-radius: 25%;
 }
