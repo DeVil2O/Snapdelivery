@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import {AdditemserviceService} from './../additem/additemservice.service';
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { AdditemserviceService } from "./../additem/additemservice.service";
 
 @Component({
-  selector: 'app-menuitem',
-  templateUrl: './menuitem.component.html',
-  styleUrls: ['./menuitem.component.css']
+  selector: "app-menuitem",
+  templateUrl: "./menuitem.component.html",
+  styleUrls: ["./menuitem.component.css"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MenuitemComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private additemService: AdditemserviceService
+  ) {}
 
-//  Items = [{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"},{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"},{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"}];
-
-  constructor(private route:ActivatedRoute,private additemService: AdditemserviceService) { }
-  
-Items=[]
+  Items = [];
   ngOnInit() {
-  
-  this.Items=this.additemService.Items;
     console.log(this.Items);
+    this.Items = this.additemService.Items;
   }
 
-  addItem(data){
+  addItem(data) {
     this.additemService.additem(data);
   }
-  
 }

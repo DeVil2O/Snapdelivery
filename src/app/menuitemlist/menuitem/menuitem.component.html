@@ -1,11 +1,14 @@
-<div *ngFor="let item of Items" class="col-lg-6 menu-item filter-specialty">
-  <div class="menu-content">
-    <a href="#">{{item.name}}</a><span>&#x20B9;{{item.price}}</span>
-  </div>
-  <div class="menu-ingredients deletebutton">
-    {{item.description}}
-  <button>Delete</button>
-
+<div *ngFor="let item of Items" class="col-lg-6">
+  <div class="menu-item filter-specialty">
+    <!-- <div class="menu-item filter-speciality"> -->
+    <div class="menu-content">
+      <a href="#">{{ item.name }}</a
+      ><span>&#x20B9;{{ item.price }}</span>
+    </div>
+    <div class="menu-ingredients deletebutton">
+      {{ item.description }}
+      <button>Delete</button>
+    </div>
+    <!-- </div> -->
   </div>
 </div>
-

@@ -1,19 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AdditemserviceService } from './additem/additemservice.service';
-
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { AdditemserviceService } from "./additem/additemservice.service";
 
 @Component({
-  selector: 'app-menuitemlist',
-  templateUrl: './menuitemlist.component.html',
-  styleUrls: ['./menuitemlist.component.css']
+  selector: "app-menuitemlist",
+  templateUrl: "./menuitemlist.component.html",
+  styleUrls: ["./menuitemlist.component.css"],
 })
 export class MenuitemlistComponent implements OnInit {
+  constructor(private service: AdditemserviceService) {}
 
-    // Items=
-  constructor(private service : AdditemserviceService) { }
-
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 }
