@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
   
     constructor() {}
   
-    additem(data){
-        this.Items.push(data);
-      }
+    // additem(data){
+    //     this.Items.push(data);
+    //   }
     
   }

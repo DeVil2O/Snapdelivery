@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdditemserviceService } from './additem/additemservice.service';
 
 
@@ -9,10 +9,21 @@ import { AdditemserviceService } from './additem/additemservice.service';
 })
 export class MenuitemlistComponent implements OnInit {
 
-    // Items=
+   Items=[];
+   showAdd:Boolean = false;
   constructor(private service : AdditemserviceService) { }
 
+ 
   ngOnInit() {
+    console.log("init menu item");
+    this.Items=this.service.Items;
+  }
+
+
+  getItem(item){
+    this.Items.push(item);
+    this.showAdd = false;
+    this.ngOnInit();
   }
 
 

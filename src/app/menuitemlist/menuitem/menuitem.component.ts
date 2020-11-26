@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {AdditemserviceService} from './../additem/additemservice.service';
@@ -11,18 +11,15 @@ import {AdditemserviceService} from './../additem/additemservice.service';
 export class MenuitemComponent implements OnInit {
 
 //  Items = [{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"},{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"},{price: 12,name: "Tomato Soup",description: "Panni wala tamatar"}];
-
-  constructor(private route:ActivatedRoute,private additemService: AdditemserviceService) { }
+@Input() item;
+  constructor() { }
   
 Items=[]
   ngOnInit() {
   
-  this.Items=this.additemService.Items;
-    console.log(this.Items);
+  // this.Items=this.additemService.Items;
+  //   console.log(this.Items);
   }
 
-  addItem(data){
-    this.additemService.additem(data);
-  }
   
 }

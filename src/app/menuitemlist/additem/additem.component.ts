@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdditemserviceService } from './additemservice.service';
 
@@ -10,6 +10,7 @@ import { AdditemserviceService } from './additemservice.service';
 })
 export class AdditemComponent implements OnInit {
   data:any={};
+  @Output() passItem = new EventEmitter;
   constructor(private route:ActivatedRoute,private additemService: AdditemserviceService) { }
 
   ngOnInit() {
@@ -17,9 +18,10 @@ export class AdditemComponent implements OnInit {
   
   addItem(data){
     console.log(data);
-    this.additemService.additem(data);
+    this.passItem.emit(data);
+    this.data = {};
+   
+    
   }
-  
-
   
 }
