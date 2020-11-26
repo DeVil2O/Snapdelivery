@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginserviceService } from '../login/loginservice.service';
+import { LoginserviceService } from './restloginservice.service';
 
 @Component({
   selector: 'app-restlogincomponent',
   templateUrl: './restlogincomponent.component.html',
   styleUrls: ['./restlogincomponent.component.css'],
   providers:[LoginserviceService]
-
 })
 export class RestlogincomponentComponent implements OnInit {
   model: any = {};
@@ -17,8 +16,8 @@ export class RestlogincomponentComponent implements OnInit {
               private loginservice:LoginserviceService) { }
   loginfun(){
     this.loading = true;
-    const userdetails='username='+this.model.username+'email='+this.model.email+'&password='+this.model.password;
-    this.loginservice.login(userdetails).subscribe(res=>{
+    const restaurantdetails='email='+this.model.email+'&password='+this.model.password;
+    this.loginservice.login(restaurantdetails).subscribe(res=>{
     this.details = res.json();
     console.log(this.details);
     localStorage.setItem("token",this.details.token);

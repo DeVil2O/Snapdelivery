@@ -5,9 +5,9 @@
     </div>
     <form name="form" (ngSubmit)="registerfun(model)" #f="ngForm" novalidate  class="php-email-form">
       <div class="form-row justify-content-center mt-5">  
-          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
-              <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" placeholder="Full Name" required />
-              <div *ngIf="f.submitted && !name.valid" class="help-block">Username is required</div>
+          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !fullName.valid }">
+              <input type="text" class="form-control" name="fullName" [(ngModel)]="model.fullName" #fullName="ngModel" placeholder="Full Name" required />
+              <div *ngIf="f.submitted && !fullName.valid" class="help-block">UserfullName is required</div>
           </div>
       </div>
       <div class="form-row justify-content-center">  
@@ -18,10 +18,10 @@
         </div>
       </div>
       <div class="form-row justify-content-center">  
-        <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !phonenumber.valid }">
-          <!-- <label for="phonenumber">PhoneNumber</label> -->
-          <input type="number" class="form-control" name="phonenumber" [(ngModel)]="model.phonenumber" #phonenumber="ngModel" placeholder="Phone Number" required />
-          <div *ngIf="f.submitted && !phonenumber.valid" class="help-block">PhoneNumber is required</div>
+        <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !mobileNumber.valid }">
+          <!-- <label for="mobileNumber">mobileNumber</label> -->
+          <input type="number" class="form-control" name="mobileNumber" [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel" placeholder="Mobile Number" required />
+          <div *ngIf="f.submitted && !mobileNumber.valid" class="help-block">Mobile Number is required</div>
       </div>
       </div>
       <div class="form-row justify-content-center">  
@@ -45,6 +45,10 @@
               <input type="text" class="form-control" name="state" [(ngModel)]="model.state" #state="ngModel" placeholder="State/Province" required />
               <div *ngIf="f.submitted && !state.valid" class="help-block">State is required</div>
           </div>
+          <div class=" col-md-2 form-group" [ngClass]="{ 'has-error': f.submitted && !pincode.valid }">
+            <input type="text" class="form-control" name="pincode" [(ngModel)]="model.pincode" #pincode="ngModel" placeholder="Pincode" required />
+            <div *ngIf="f.submitted && !pincode.valid" class="help-block">Pincode is required</div>
+        </div>
       </div>
       
 

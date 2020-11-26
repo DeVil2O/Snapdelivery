@@ -17,6 +17,9 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutrestComponent } from './aboutrest/aboutrest.component';
 import { RestlogincomponentComponent } from './restlogincomponent/restlogincomponent.component';
 import { RestregisterComponent } from './restregister/restregister.component';
+import { MenuitemlistComponent } from './menuitemlist/menuitemlist.component';
+import { MenuitemComponent } from './menuitemlist/menuitem/menuitem.component';
+import { AdditemComponent } from './menuitemlist/additem/additem.component';
 
 
 
@@ -27,7 +30,7 @@ import { RestregisterComponent } from './restregister/restregister.component';
     LoginComponent,
     DashboardComponent,
     ChildServiceComponent,    
-    RegisterComponent, HomeComponent, MenuComponent, AboutrestComponent, RestlogincomponentComponent, RestregisterComponent,AboutComponent
+    RegisterComponent, HomeComponent, MenuComponent, AboutrestComponent, RestlogincomponentComponent, RestregisterComponent,AboutComponent, MenuitemlistComponent, MenuitemComponent, AdditemComponent, 
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginserviceService } from '../login/loginservice.service';
+import { LoginserviceService } from '../restlogincomponent/restloginservice.service';
 
 @Component({
   selector: 'app-restregister',
@@ -16,7 +16,7 @@ export class RestregisterComponent implements OnInit {
   ngOnInit() {
   }
   registerfun(model){
-    
+    console.log(model);
     this.sevice.addreg(model).subscribe(res=>{
       this.result = res.json();
       console.log(this.result);

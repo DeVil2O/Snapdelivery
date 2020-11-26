@@ -1,0 +1,11 @@
+<form (ngSubmit)="addItem(data)">
+<div class="col-lg-6 menu-item filter-specialty">
+  <div class="menu-content">
+    <input class="menuinput" type="text" name="name" [(ngModel)]="data.name" value="tamatar" placeholder="Name"><span>&#x20B9;<input class="menuinput" [(ngModel)]="data.price" type="number" name="price" value="12" placeholder="Price"></span>
+  </div>
+  <div class="menu-ingredients addbutton">
+    <input class="menuinput" type="text" name="description" [(ngModel)]="data.description" value="tamatar" placeholder="Description">
+  <button >Add</button>
+  </div>
+</div>
+</form>

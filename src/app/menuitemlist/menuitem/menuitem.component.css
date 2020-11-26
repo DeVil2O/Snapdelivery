@@ -1,0 +1,12 @@
+.deletebutton{
+    display: flex;
+  justify-content: space-between;
+}
+
+.deletebutton button{
+  padding: 0 10px;
+  background-color: #ff9b08;
+  border: none;
+  color: white;
+  border-radius: 25%;
+}
