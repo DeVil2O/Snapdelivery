@@ -1,0 +1,79 @@
+.foodbackground {
+    width: 100%;
+    height: 100%;
+    background: #dd614a no-repeat center;
+    background-size: cover;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-expand a {
+    font-family: 'Pacifico';
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-expand .navbar-nav {
+    position: absolute;
+    right: 20px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.error {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+
+.errorpage {
+    padding: 25px 0 0 0;
+    font-size: 3rem;
+}
+
+.nopage {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size:13rem;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+@media screen and (max-width: 767px) {
+    img {
+        width: 160px;
+        height: 160px;
+    }
+
+    h1 {
+        font-size: 11rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 11rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+}

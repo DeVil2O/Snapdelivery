@@ -1,0 +1,170 @@
+.foodbackground {
+  width: 100%;
+  height: 60%;
+  background: #dd614a no-repeat center;
+  background-size: cover;
+}
+
+.collections {
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.navbar-expand a {
+  font-family: "Pacifico";
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-expand .navbar-nav {
+  position: absolute;
+  right: 20px;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.form-rounded {
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.centerrow {
+  margin: 0 auto;
+  width: 80%;
+  height: 90%;
+}
+
+.container {
+  height: 85%;
+}
+
+.spacing {
+  height: 50%;
+  background: #73a580;
+  border: none;
+  color: white;
+}
+
+.searchspace {
+  padding: 18px;
+  border-radius: 0;
+  background: #73a580;
+  border: none;
+  height: 50%;
+}
+
+.searchspace:focus {
+  box-shadow: none;
+}
+
+.searchspace:active {
+  transition: all 0.8s;
+}
+
+.searchspace:hover {
+  background: white;
+  color: #dd614a;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.header {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 10%;
+}
+
+.header_resto {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
+.form-control:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.image_height {
+  max-width: 93%;
+  margin: 0 auto;
+  max-height: 300px;
+}
+
+.feature_image {
+  width: 100%;
+  background: url("./../../assets/food.jpeg") no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.mat-tab-group {
+  padding-top: 20px;
+  overflow: hidden;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.mat-tab-body-wrapper {
+  padding-top: inherit;
+}
+
+.mat-tab-body-content {
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.mat-card {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.example-header-image {
+  background: url("./../../assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.mat-card-avatar {
+  height: 65px;
+  width: 65px;
+}
+
+.content_box {
+  padding: 20px 10px 0 10px;
+  width: 100%;
+}
+
+.overview h5 {
+  color: #73a580;
+}
+
+@media screen and (max-width: 425px) {
+  .centerrow {
+    width: 100%;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+}

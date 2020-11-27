@@ -1,0 +1,101 @@
+<app-loader *ngIf="loading"></app-loader>
+<div class="container-fluid foodbackground" *ngIf="!loading">
+  <nav class="navbar navbar-expand navbar-light">
+    <a class="navbar-brand" [routerLink]="['/home']">{{title}}</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home']">Home</a></li>
+      <li class="nav-item"><a class="nav-link" [routerLink]="['**']">About</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <!-- Search Restaurant -->
+    <div class="row centerrow">
+      <div class="header">
+        <h2>Find Your Restaurant</h2>
+        <h4>Find the best restaurants, cafes and bars</h4>
+      </div>
+      <div class="input-group">
+        <ng-select [items]="cities" bindLabel="name" bindValue="name" id="search" class="form-control spacing"
+          placeholder="Select city" [clearable]="true" [(ngModel)]="selectedCityName" [closeOnSelect]="true"
+          dropdownPosition="auto" (change)="goToDashboard($event, cityName=selectedCityName)">
+        </ng-select>&nbsp;
+
+        <ng-select [items]="searchRestoList" bindLabel="restaurant.name" bindValue="restaurant.name" id="search"
+          class="form-control spacing" placeholder="Select Restaurant" [clearable]="true"
+          [(ngModel)]="selectedRestoName" [closeOnSelect]="true" dropdownPosition="auto"
+          (change)="goToDashboard($event, restoName=selectedRestoName)">
+        </ng-select>&nbsp;
+
+        <span class="input-group-btn">
+          <input type="button" name="commit" value="Search" class="btn btn-primary searchspace"
+            data-disable-with="Search" (click)="goToDashboard($event, cityName=selectedCityName)">
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row" *ngFor="let review of list">
+    <div class="header_resto">
+      <h3>{{review.name}}</h3>
+      <p>{{review.location.locality}}
+        <br>
+        {{review.cuisines}}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 image_height">
+      <img class="feature_image" src="{{review.featured_image}}">
+    </div>
+
+    <div class="container">
+      <mat-tab-group>
+        <mat-tab label="Overview" class="overview">
+          <div class="row content_box">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <h5>Cuisines</h5>
+              <p>{{review.cuisines}}</p>
+              <br>
+              <h5>Ratings</h5>
+              <p>{{review.user_rating.aggregate_rating}}
+                <br>{{review.user_rating.rating_text}}<br>
+                {{review.user_rating.votes}} votes</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <h5>Address</h5>
+              <p>{{review.location.address}}
+                <br>{{review.location.city}}
+                <br>Landmark: {{review.location.locality}}</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <h5>Average Cost</h5>
+              <p>{{review.currency}} {{review.average_cost_for_two}} for two people (approx.)</p>
+              <p>Exclusive of applicable taxes and charges, if any</p>
+              <p>Cash and Cards accepted</p>
+            </div>
+          </div>
+        </mat-tab>
+
+        <!-- Reviews -->
+        <mat-tab label="Reviews">
+          <div class="row content_box">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <h5>Reviews ({{review.reviews_count}})</h5>
+              <mat-card *ngFor="let userreview of review.user_reviews" class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{userreview.review.user.name}}</mat-card-title>
+                  <mat-card-subtitle>
+                    {{userreview.review.user.foodie_level}}<br>{{userreview.review.review_time_friendly}}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>{{userreview.review.review_text}}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

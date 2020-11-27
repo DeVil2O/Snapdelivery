@@ -1,44 +1,81 @@
 <section id="book-a-table" class="book-a-table">
   <div class="container">
-
     <div class="section-title">
       <h2 class="text-white">LOGIN</h2>
-      </div>
+    </div>
 
-    <form (ngSubmit)="f.form.valid && loginfun()" #f="ngForm" novalidate class="php-email-form">
+    <form
+      (ngSubmit)="f.form.valid && loginfun()"
+      #f="ngForm"
+      novalidate
+      class="php-email-form"
+    >
       <div class="form-row justify-content-center mt-5">
-        
-        <div class=" col-md-8 form-group"  [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-          <input type="email" class="form-control"  [(ngModel)]="model.email" #email="ngModel" required name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-          <!-- <div class="validate"></div> -->
-          
-          <div *ngIf="f.submitted && !email.valid" class="help-block">email is required</div>
+        <div
+          class="col-md-8 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !email.valid }"
+        >
+          <input
+            type="email"
+            class="form-control"
+            [(ngModel)]="model.email"
+            #email="ngModel"
+            required
+            name="email"
+            id="email"
+            placeholder="Your Email"
+            data-rule="email"
+            data-msg="Please enter a valid email"
+          />
+          <div *ngIf="f.submitted && !email.valid" class="help-block">
+            email is required
+          </div>
         </div>
       </div>
-        <div class="form-row justify-content-center">
-      <div class=" col-md-8 form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <input type="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" required name="password" rows="5" placeholder="Password">
-        <!-- <div class="validate"></div> -->
-        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-8 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !password.valid }"
+        >
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="model.password"
+            #password="ngModel"
+            required
+            name="password"
+            rows="5"
+            placeholder="Password"
+          />
+          <!-- <div class="validate"></div> -->
+          <div *ngIf="f.submitted && !password.valid" class="help-block">
+            Password is required
+          </div>
+        </div>
       </div>
-    </div>
       <div class="mb-3">
         <div class="loading">Loading</div>
         <div class="error-message"></div>
-        <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+        <div class="sent-message">
+          Your booking request was sent. We will call back or send an Email to
+          confirm your reservation. Thank you!
+        </div>
       </div>
       <div class="form-row justify-content-center">
-        <div class=" col-md-5 form-group">
-      <div class="text-center"><button  class="buttonsignup" [disabled]="loading">Login</button></div>
+        <div class="col-md-5 form-group">
+          <div class="text-center">
+            <button class="buttonsignup" [disabled]="loading">Login</button>
+          </div>
         </div>
-        
       </div>
     </form>
-    <br>
+    <br />
     <div class="row form-group justify-content-center">
-      <div class="text-center"><a href="/customer/register"><button class="buttonsignup">Register</button></a></div>
-        </div>
-
+      <div class="text-center">
+        <a href="/customer/register"
+          ><button class="buttonsignup">Register</button></a
+        >
+      </div>
+    </div>
   </div>
 </section>

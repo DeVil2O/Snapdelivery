@@ -1,83 +1,212 @@
 <section id="book-a-table" class="book-a-table">
-    <div class="container">
-      <div class="section-title">
-        <h2 class="text-white">REGISTRATION</h2>
-      </div>
-      <form name="form" (ngSubmit)="registerfun(model)" #f="ngForm" novalidate  class="php-email-form">
-        <div class="form-row justify-content-center mt-5">  
-            <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !fullName.valid }">
-                <input type="text" class="form-control" name="fullName" [(ngModel)]="model.fullName" #fullName="ngModel" placeholder="Full Name" required />
-                <div *ngIf="f.submitted && !fullName.valid" class="help-block">fullName is required</div>
-            </div>
-        </div>
-        <div class="form-row justify-content-center">  
-            <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-              <!-- <label for="email">Email</label> -->
-              <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Email" required />
-              <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
-          </div>
-        </div>
-        <div class="form-row justify-content-center">  
-          <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !mobileNumber.valid }">
-            <!-- <label for="mobileNumber">mobileNumber</label> -->
-            <input type="number" class="form-control" name="mobileNumber" [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel" placeholder="mobileNNumber" required />
-            <div *ngIf="f.submitted && !mobileNumber.valid" class="help-block">mobileNumber is required</div>
-        </div>
-        </div>
-        <div class="form-row justify-content-center">  
-            <div class=" col-md-9 form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" required />
-                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-            </div>
-        </div>
-
-        <div class="form-row justify-content-center">
-                <div class=" col-md-4 form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
-                    <input type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" placeholder="Address" required />
-                    <div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
-                </div>
-            
-            <div class=" col-md-3 form-group" [ngClass]="{ 'has-error': f.submitted && !city.valid }">
-                <input type="text" class="form-control" name="city" [(ngModel)]="model.city" #city="ngModel" placeholder="City/Town" required />
-                <div *ngIf="f.submitted && !city.valid" class="help-block">City is required</div>
-            </div>
-            <div class=" col-md-2 form-group" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
-                <input type="text" class="form-control" name="state" [(ngModel)]="model.state" #state="ngModel" placeholder="State/Province" required />
-                <div *ngIf="f.submitted && !state.valid" class="help-block">State is required</div>
-            </div>
-            <div class=" col-md-2 form-group" [ngClass]="{ 'has-error': f.submitted && !pincode.valid }">
-              <input type="text" class="form-control" name="pincode" [(ngModel)]="model.pincode" #pincode="ngModel" placeholder="Pincode" required />
-              <div *ngIf="f.submitted && !pincode.valid" class="help-block">Pincode is required</div>
-          </div>
-        </div>
-        
-        <div class="form-row justify-content-center">  
-            <div class=" col-md-3 form-group" [ngClass]="{ 'has-error': f.submitted && !age.valid }">
-              <!-- <label for="phonenumber">PhoneNumber</label> -->
-              <input type="number" class="form-control" name="age" [(ngModel)]="model.age" #age="ngModel" placeholder="Age" required />
-              <div *ngIf="f.submitted && !age.valid" class="help-block">Age is required</div>
-          </div>
-          &nbsp;&nbsp;
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Gender
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <span class="dropdown-item">M</span>
-              <span class="dropdown-item">F</span>
-              <span class="dropdown-item">Shivam</span>
-            </div>
-          </div>
-          
-        </div>
-
-
-        <div class="form-row justify-content-center">
-          <div class=" col-md-5 form-group">
-        <div class="text-center"><button  class="buttonsignup">Register</button></div>
-          </div>
-        </div>
-      </form>
+  <div class="container">
+    <div class="section-title">
+      <h2 class="text-white">REGISTRATION</h2>
     </div>
-</section>
+    <form
+      name="form"
+      (ngSubmit)="registerfun(model)"
+      #f="ngForm"
+      novalidate
+      class="php-email-form"
+    >
+      <div class="form-row justify-content-center mt-5">
+        <div
+          class="col-md-9 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !fullName.valid }"
+        >
+          <input
+            type="text"
+            class="form-control"
+            name="fullName"
+            [(ngModel)]="model.fullName"
+            #fullName="ngModel"
+            placeholder="Full Name"
+            required
+          />
+          <div *ngIf="f.submitted && !fullName.valid" class="help-block">
+            fullName is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-9 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !email.valid }"
+        >
+          <!-- <label for="email">Email</label> -->
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            [(ngModel)]="model.email"
+            #email="ngModel"
+            placeholder="Email"
+            required
+          />
+          <div *ngIf="f.submitted && !email.valid" class="help-block">
+            Email is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-9 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !mobileNumber.valid }"
+        >
+          <!-- <label for="mobileNumber">mobileNumber</label> -->
+          <input
+            type="number"
+            class="form-control"
+            name="mobileNumber"
+            [(ngModel)]="model.mobileNumber"
+            #mobileNumber="ngModel"
+            placeholder="mobileNNumber"
+            required
+          />
+          <div *ngIf="f.submitted && !mobileNumber.valid" class="help-block">
+            mobileNumber is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-9 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !password.valid }"
+        >
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="model.password"
+            #password="ngModel"
+            placeholder="Password"
+            required
+          />
+          <div *ngIf="f.submitted && !password.valid" class="help-block">
+            Password is required
+          </div>
+        </div>
+      </div>
 
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-4 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !address.valid }"
+        >
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            [(ngModel)]="model.address"
+            #address="ngModel"
+            placeholder="Address"
+            required
+          />
+          <div *ngIf="f.submitted && !address.valid" class="help-block">
+            Address is required
+          </div>
+        </div>
+
+        <div
+          class="col-md-3 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !city.valid }"
+        >
+          <input
+            type="text"
+            class="form-control"
+            name="city"
+            [(ngModel)]="model.city"
+            #city="ngModel"
+            placeholder="City/Town"
+            required
+          />
+          <div *ngIf="f.submitted && !city.valid" class="help-block">
+            City is required
+          </div>
+        </div>
+        <div
+          class="col-md-2 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !state.valid }"
+        >
+          <input
+            type="text"
+            class="form-control"
+            name="state"
+            [(ngModel)]="model.state"
+            #state="ngModel"
+            placeholder="State/Province"
+            required
+          />
+          <div *ngIf="f.submitted && !state.valid" class="help-block">
+            State is required
+          </div>
+        </div>
+        <div
+          class="col-md-2 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !pincode.valid }"
+        >
+          <input
+            type="text"
+            class="form-control"
+            name="pincode"
+            [(ngModel)]="model.pincode"
+            #pincode="ngModel"
+            placeholder="Pincode"
+            required
+          />
+          <div *ngIf="f.submitted && !pincode.valid" class="help-block">
+            Pincode is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-3 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !age.valid }"
+        >
+          <!-- <label for="phonenumber">PhoneNumber</label> -->
+          <input
+            type="number"
+            class="form-control"
+            name="age"
+            [(ngModel)]="model.age"
+            #age="ngModel"
+            placeholder="Age"
+            required
+          />
+          <div *ngIf="f.submitted && !age.valid" class="help-block">
+            Age is required
+          </div>
+        </div>
+        &nbsp;&nbsp;
+        <div class="dropdown">
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Gender
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <span class="dropdown-item">M</span>
+            <span class="dropdown-item">F</span>
+            <span class="dropdown-item">Shivam</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="col-md-5 form-group">
+          <div class="text-center">
+            <button class="buttonsignup">Register</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

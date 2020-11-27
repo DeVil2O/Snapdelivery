@@ -8,6 +8,21 @@
   border: none;
   outline: none;
 }
+
+.menuinput ::-webkit-input-placeholder {
+  /* Edge */
+  color: #505050;
+}
+
+.menuinput:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #505050;
+}
+
+.menuinput::placeholder {
+  color: #505050;
+}
+
 .menuinput input:focus {
   /* border: none; */
   outline: none;

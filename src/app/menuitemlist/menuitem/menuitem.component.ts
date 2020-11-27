@@ -1,26 +1,22 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { AdditemserviceService } from "./../additem/additemservice.service";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-menuitem",
   templateUrl: "./menuitem.component.html",
   styleUrls: ["./menuitem.component.css"],
-  encapsulation: ViewEncapsulation.None,
 })
 export class MenuitemComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private additemService: AdditemserviceService
-  ) {}
+  @Input() item;
+  data: any = {};
+  @Output() passItem = new EventEmitter();
 
-  Items = [];
-  ngOnInit() {
-    console.log(this.Items);
-    this.Items = this.additemService.Items;
-  }
+  constructor() {}
 
-  addItem(data) {
-    this.additemService.additem(data);
+  ngOnInit() {}
+
+  deleteItem(data) {
+    console.log(data);
+    this.passItem.emit(data);
+    this.data = {};
   }
 }
