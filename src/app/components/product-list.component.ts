@@ -91,7 +91,6 @@ export class ProductListComponent implements OnInit {
   // ===============================
 
   addToCart(event, productId) {
-    // If Item is already added then display alert message
     if (event.target.classList.contains("btn-success")) {
       alert("This product is already added into cart.");
       return false;

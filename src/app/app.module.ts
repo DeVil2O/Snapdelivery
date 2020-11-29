@@ -73,6 +73,7 @@ import { MySharedService } from "./shared.service";
 import { CartComponent } from "./components/cart.component";
 import { HeaderComponent } from "./components/header.component";
 import { ProductListComponent } from "./components/product-list.component";
+import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { ProductListComponent } from "./components/product-list.component";
     UseraddtocartmenuComponent,
     HeaderComponent,
     ProductListComponent,
+    ProfileupdateComponent,
   ],
   imports: [
     BrowserAnimationsModule,
