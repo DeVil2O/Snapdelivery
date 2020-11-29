@@ -38,6 +38,14 @@ import { MySharedService } from "../shared.service";
           <strong class="d-block">Total:</strong>
           <span class="d-block">{{ totalAmmount | currency: "INR" }}</span>
         </p>
+
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm"
+          (click)="emptyCart()"
+        >
+          Empty Cart
+        </button>
       </div>
     </div>
   `,
@@ -76,8 +84,8 @@ import { MySharedService } from "../shared.service";
   ],
 })
 export class CartComponent implements OnInit {
-  private cartItems;
-  private totalAmmount;
+  cartItems;
+  totalAmmount;
 
   constructor(private mySharedService: MySharedService) {}
 
