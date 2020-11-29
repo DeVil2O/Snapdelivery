@@ -37,6 +37,9 @@ export class MySharedService {
     // Update Observable value
     this.products.next(this.cartItems);
   }
+  placeOrderFromCart() {
+    alert("Your Order Has been Placed");
+  }
 
   // Remove all the items added to the cart
   emptryCart() {

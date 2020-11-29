@@ -25,27 +25,31 @@ import { MySharedService } from "../shared.service";
         </li>
       </ul>
       <div class="cart-total">
-        <p>
+        <div class="d-flex justify-content-between">
+          <p>
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm"
+              (click)="emptyCart()"
+            >
+              Empty Cart
+            </button>
+          </p>
+          <p class="text-right">
+            <strong class="d-block">Total:</strong>
+            <span class="d-block">{{ totalAmmount | currency: "INR" }}</span>
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
           <button
             type="button"
-            class="btn btn-outline-primary btn-sm"
-            (click)="emptyCart()"
+            class="btn btn-success btn-lg"
+            (click)="placeOrder()"
           >
-            Empty Cart
+            Place Order
           </button>
-        </p>
-        <p class="text-right">
-          <strong class="d-block">Total:</strong>
-          <span class="d-block">{{ totalAmmount | currency: "INR" }}</span>
-        </p>
-
-        <button
-          type="button"
-          class="btn btn-outline-primary btn-sm"
-          (click)="emptyCart()"
-        >
-          Empty Cart
-        </button>
+        </div>
       </div>
     </div>
   `,
@@ -99,18 +103,13 @@ export class CartComponent implements OnInit {
 
   // Remove item from cart list
   removeItemFromCart(productId) {
-    /* this.cartItems.map((item, index) => {
-      if (item.id === productId) {
-        this.cartItems.splice(index, 1);
-      }
-    });
-
-    this.mySharedService.setProducts(this.cartItems); */
-
     this.mySharedService.removeProductFromCart(productId);
   }
 
   emptyCart() {
     this.mySharedService.emptryCart();
+  }
+  placeOrder() {
+    this.mySharedService.placeOrderFromCart();
   }
 }

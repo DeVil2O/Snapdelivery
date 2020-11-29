@@ -96,7 +96,7 @@ import { MySharedService } from "../shared.service";
   ],
 })
 export class HeaderComponent implements OnInit {
-  private cartProductCount: number = 0;
+  cartProductCount: number = 0;
 
   constructor(private mySharedService: MySharedService) {}
 

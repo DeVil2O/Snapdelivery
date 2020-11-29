@@ -64,8 +64,8 @@ import { MySharedService } from "../shared.service";
 })
 export class ProductListComponent implements OnInit {
   @Input() products: any = [];
-  private singleProduct;
-  private isAdded;
+  singleProduct;
+  isAdded;
 
   constructor(
     private renderer: Renderer2,
