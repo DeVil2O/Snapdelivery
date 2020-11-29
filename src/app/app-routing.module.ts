@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: "dashedboard/:id", component: DashedboardComponent },
   { path: "detail/:id", component: DetailComponent },
   { path: "**", component: PageNotFoundComponent },
+  // { path: "products/:productId", component: },
 ];
 
 @NgModule({

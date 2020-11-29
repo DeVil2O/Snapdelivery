@@ -1,4 +1,4 @@
-<div class="container-fluid ordernow">
+<!-- <div class="container-fluid ordernow">
   <div class="container">
     <div class="row centerrow">
       <div class="header">
@@ -22,16 +22,16 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<!-- <div class="container-fluid foodbackground">
+<div class="container-fluid ordernow">
   <div class="container">
     <div class="row centerrow">
       <div class="header">
         <h1>{{ title }}</h1>
         <h4>Find the best restaurants, cafes and bars</h4>
       </div>
-      <div class="input-group">
+      <div class="homemainsearch">
         <ng-select
           [items]="cities"
           bindLabel="name"
@@ -47,7 +47,7 @@
         </ng-select
         >&nbsp;
 
-        <span class="input-group-btn">
+        <div class="input-group-btn">
           <input
             type="button"
             name="commit"
@@ -56,8 +56,8 @@
             data-disable-with="Search"
             (click)="goToDashboard($event, (cityName = selectedCityName))"
           />
-        </span>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>

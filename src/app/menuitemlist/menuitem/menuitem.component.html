@@ -4,5 +4,9 @@
 </div>
 <div class="menu-ingredients deletebutton">
   {{ item.description }}
-  <button (click)="deleteItem(item)">Delete</button>
+  <div class="">
+    <button (click)="deleteItem(item)">Delete</button>
+    &nbsp;
+    <button (click)="addItemToCart(item)">ADD</button>
+  </div>
 </div>

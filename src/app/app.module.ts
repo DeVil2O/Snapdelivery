@@ -62,6 +62,18 @@ import { FoodserviceService } from "./foodservice.service";
 import { HomedComponent } from "./homed/homed.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { HttpClientModule } from "@angular/common/http";
+import { AddtocartComponent } from "./addtocart/addtocart.component";
+import { UserdashboardComponent } from "./userdashboard/userdashboard.component";
+import { UsermenuComponent } from "./usermenu/usermenu.component";
+import { UsermenuitemComponent } from "./usermenu/usermenuitem/usermenuitem.component";
+import { UseraddtocartmenuComponent } from "./usermenu/useraddtocartmenu/useraddtocartmenu.component";
+
+import { MyMainService } from "./main.service";
+import { MySharedService } from "./shared.service";
+import { CartComponent } from "./components/cart.component";
+import { HeaderComponent } from "./components/header.component";
+import { ProductListComponent } from "./components/product-list.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +95,14 @@ import { HttpClientModule } from "@angular/common/http";
     PageNotFoundComponent,
     DetailComponent,
     HomedComponent,
+    AddtocartComponent,
+    CartComponent,
+    UserdashboardComponent,
+    UsermenuComponent,
+    UsermenuitemComponent,
+    UseraddtocartmenuComponent,
+    HeaderComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -128,7 +148,12 @@ import { HttpClientModule } from "@angular/common/http";
     NgSelectModule,
     HttpClientModule,
   ],
-  providers: [LoginserviceService, FoodserviceService],
+  providers: [
+    LoginserviceService,
+    FoodserviceService,
+    MyMainService,
+    MySharedService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-
+import { CartService } from "./../../cartservice.service";
 @Component({
   selector: "app-menuitem",
   templateUrl: "./menuitem.component.html",
@@ -10,7 +10,7 @@ export class MenuitemComponent implements OnInit {
   data: any = {};
   @Output() passItem = new EventEmitter();
 
-  constructor() {}
+  constructor(private cartService:CartService ) {}
 
   ngOnInit() {}
 
@@ -18,5 +18,11 @@ export class MenuitemComponent implements OnInit {
     console.log(data);
     this.passItem.emit(data);
     this.data = {};
+  }
+  addItemToCart(data) {
+
+    this.cartService.addToCart(data);
+    window.alert("Your product has been added to the cart!");
+
   }
 }

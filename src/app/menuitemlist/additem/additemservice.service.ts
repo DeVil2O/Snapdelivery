@@ -7,27 +7,27 @@ export class AdditemserviceService {
   Items = [
     {
       id: 1,
-      price: 12,
-      name: "Tomato Soup",
-      description: "Panni wala tamatar",
+      price: 122,
+      name: "Copper Soup",
+      description: "Panni wala Copper",
     },
     {
       id: 2,
-      price: 12,
-      name: "Tomato Soup",
-      description: "Panni wala tamatar",
+      price: 200,
+      name: "Silver Soup",
+      description: "Panni wala Silver",
     },
     {
       id: 3,
-      price: 12,
-      name: "Tomato Soup",
-      description: "Panni wala tamatar",
+      price: 500,
+      name: "Gold Soup",
+      description: "Panni wala Gold",
     },
     {
       id: 4,
-      price: 12,
-      name: "Tomato Soup",
-      description: "Panni wala tamatar",
+      price: 430,
+      name: "Diamond Soup",
+      description: "Panni wala Diamond",
     },
   ];
 
