@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FoodserviceService } from "../foodservice.service";
 import { map } from "rxjs/operators";
+import { LoginserviceService } from "../login/loginservice.service";
 
 @Component({
   selector: "app-dashedboard",
@@ -23,10 +24,15 @@ export class DashedboardComponent implements OnInit {
   searchRestoList: any = [];
   selectedRestoName: string = "";
 
+  model: any = {};
+  newloading = false;
+  details: any = {};
+  isrest = "false";
   constructor(
     private foodservice: FoodserviceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private loginservice: LoginserviceService
   ) {}
 
   ngOnInit() {
@@ -50,12 +56,25 @@ export class DashedboardComponent implements OnInit {
   }
   resultt: any;
 
+  async getSearchParam(model) {
+    this.loading = true;
+    console.log(model.city);
+    console.log(model.dish);
+    const userdetails = "city=" + model.city + "&dish=" + model.dish;
+    await this.foodservice
+      .getSearchDetails(model.city, model.dish)
+      .subscribe(async (data) => {
+        console.log(data.json());
+        const result = data.json();
+        this.setDetails(result.restaurants);
+      });
+  }
+
   async getAllDetails() {
     this.loading = true;
     const id = this.route.snapshot.paramMap.get("id").toString();
 
     await this.foodservice.getCityestaurant(id).subscribe(async (data) => {
-      // alert(data);
       console.log(data.json());
       const result = data.json();
       this.setDetails(result.restaurants);

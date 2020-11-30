@@ -17,6 +17,23 @@ export class FoodserviceService {
 
   constructor(private httpService: HttpClient, private http: Http) {}
 
+  getSearchDetails(city, dish) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    let responseCollection = this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/restaurant/fetchAll?city=" +
+        city +
+        "&q=" +
+        dish,
+      { headers: headers }
+    );
+    // console
+    return responseCollection;
+  }
+
   getRestaurantDetails(restoId) {
     var headers = new Headers();
     headers.append("Content-Type", "application/json");

@@ -12,54 +12,45 @@
     </ul>
   </nav>
   <div class="container">
-    <!-- Search Restaurant -->
     <div class="row centerrow">
       <div class="header">
         <h2>Find Your Restaurant</h2>
         <h4>Find the best restaurants, cafes and bars</h4>
       </div>
-      <div class="input-group">
-        <ng-select
-          [items]="cities"
-          bindLabel="name"
-          bindValue="name"
-          id="search"
-          class="form-control spacing"
-          placeholder="Select city"
-          [clearable]="true"
-          [(ngModel)]="selectedCityName"
-          [closeOnSelect]="true"
-          dropdownPosition="auto"
-          (change)="goToDashboard($event, (cityName = selectedCityName))"
-        >
-        </ng-select
-        >&nbsp;
+      <div class="container mt-5">
+        <form (ngSubmit)="getSearchParam(model)" #f="ngForm" novalidate>
+          <div class="row">
+            <div class="col-6">
+              <input
+                class="form-control"
+                [(ngModel)]="model.city"
+                #city="ngModel"
+                required
+                type="text"
+                class="w-75"
+                name="city"
+                placeholder="Select City"
+              />
+            </div>
+            <div class="col-6">
+              <input
+                class="form-control"
+                [(ngModel)]="model.dish"
+                #dish="ngModel"
+                required
+                type="text"
+                class="w-75"
+                name="dish"
+                placeholder="Select Dish"
+              />
+            </div>
+          </div>
 
-        <ng-select
-          [items]="searchRestoList"
-          bindLabel="restaurant.name"
-          bindValue="restaurant.id"
-          id="search"
-          class="form-control spacing"
-          placeholder="Select Restaurant"
-          [clearable]="true"
-          [(ngModel)]="selectedRestoName"
-          [closeOnSelect]="true"
-          dropdownPosition="auto"
-        >
-        </ng-select
-        >&nbsp;
-
-        <span class="input-group-btn">
-          <input
-            type="button"
-            name="commit"
-            value="Search"
-            class="btn btn-primary searchspace"
-            data-disable-with="Search"
-            (click)="goToDetail($event, (restoName = selectedRestoName))"
-          />
-        </span>
+          <div class="row">
+            <div class="col-5"></div>
+            <button type="submit" class="btn btn-success">Search</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -72,24 +63,12 @@
         <p>Discover restaurants by type of meal</p>
       </div>
     </div>
-
-    <!-- <div class="row">
-      <div
-        *ngFor="let category of categoriesDetail | slice: 0:10"
-        class="flexbox"
-      >
-        <div class="p-2">{{ category.categories.name }}</div>
-      </div>
-    </div> -->
-
-    <!-- Trending Restaurant List -->
     <div class="row">
       <div
         class="col-md-12 col-lg-12 col-sm-12 collections"
         style="padding-top: 30px"
       >
         <h3>List of Trending Restaurants</h3>
-        <!-- <p>{{ collection.description }}</p> -->
       </div>
     </div>
 
@@ -103,11 +82,8 @@
         <a [routerLink]="['/detail', resto._id]">
           <mat-card-header>
             <mat-card-title>{{ resto.fullName }}</mat-card-title>
-            <mat-card-subtitle>{{
-              resto.restaurant.cuisines
-            }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{ resto.restaurant.featured_image }}" />
+          <img mat-card-image src="./../../assets/resturant-deliver.svg" />
           <mat-card-content>
             <div class="cost">Average Cost for two people: 400</div>
             <div class="post-meta">
