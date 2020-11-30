@@ -1,4 +1,4 @@
-<!-- <link
+<link
   rel="stylesheet"
   type="text/css"
   href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
@@ -43,19 +43,21 @@
                 ><strong>{{ item._id }}</strong></span
               >&nbsp; <span class="label label-info">Order Number</span><br />
               Total cost : &#x20B9; {{ item.totalPrice }} <br />
-              <a
+              <button
                 data-placement="top"
                 class="btn btn-success btn-xs glyphicon glyphicon-ok"
-                href="#"
+                (click)="updateOrd('Approved', item._id)"
+                [disabled]="item.status != 'Placed'"
                 title="View"
-              ></a
+              ></button
               >&nbsp;
-              <a
+              <button
                 data-placement="top"
                 class="btn btn-danger btn-xs glyphicon glyphicon-trash"
-                href="#"
+                (click)="updateOrd('Cancelled', item._id)"
+                [disabled]="item.status != 'Placed'"
                 title="Danger"
-              ></a
+              ></button
               >&nbsp;
               <a
                 data-placement="top"
@@ -71,11 +73,10 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="panel-footer">
       Put here some note for example: bootdey si a gallery of free bootstrap
       snippets bootdeys
     </div>
   </div>
-</div> -->
+</div>

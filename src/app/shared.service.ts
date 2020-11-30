@@ -93,4 +93,15 @@ export class MySharedService {
       { headers: headers }
     );
   }
+  updateorder(obj) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+    return this.http.put(
+      "https://snapdeliveryapp.herokuapp.com/app/order/update",
+      obj,
+      { headers: headers }
+    );
+  }
 }

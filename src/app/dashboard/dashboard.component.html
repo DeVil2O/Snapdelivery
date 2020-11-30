@@ -70,9 +70,15 @@
                 <a
                   class="dropdown-item text-dark"
                   href="/orders"
+                  *ngIf="!check(); else notcheck"
                   style="color: black"
                   >Orders</a
                 >
+
+                <ng-template #notcheck>
+                  <a href="/restorderhistory"> Orders</a>
+                </ng-template>
+
                 <a
                   class="dropdown-item text-dark"
                   (click)="logout()"
@@ -83,7 +89,7 @@
             </li>
           </ng-template>
 
-          <li class="book-a-table text-center">
+          <li class="book-a-table text-center" *ngIf="!check()">
             <a href="/restsearch">ORDER NOW</a>
           </li>
         </ul>
