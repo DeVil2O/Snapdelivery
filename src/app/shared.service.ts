@@ -69,4 +69,28 @@ export class MySharedService {
 
     return total;
   }
+  fetch() {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    return this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/order/fetchAll",
+
+      { headers: headers }
+    );
+  }
+  fetchId(orderId) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    return this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/order/fetch?id=" + orderId,
+
+      { headers: headers }
+    );
+  }
 }

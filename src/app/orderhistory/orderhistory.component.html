@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body" *ngFor="let item of result">
       <div class="row">
         <div class="col-md-1">
           <img
@@ -37,12 +37,13 @@
           <div class="row">
             <div class="col-md-12">
               <div class="pull-right">
-                <label class="label label-danger">rejected</label>
+                <label class="label label-danger">{{ item.status }}</label>
               </div>
-              <span><strong>Order name</strong></span
-              >&nbsp; <span class="label label-info">group name</span><br />
-              Quantity : 2, cost: $323.13 <br />
-              <a
+              <span
+                ><strong>{{ item._id }}</strong></span
+              >&nbsp; <span class="label label-info">Order Number</span><br />
+              Total cost : &#x20B9; {{ item.totalPrice }} <br />
+              <!-- <a
                 data-placement="top"
                 class="btn btn-success btn-xs glyphicon glyphicon-ok"
                 href="#"
@@ -55,22 +56,23 @@
                 href="#"
                 title="Danger"
               ></a
-              >&nbsp;
+              >&nbsp; -->
               <a
                 data-placement="top"
                 class="btn btn-info btn-xs glyphicon glyphicon-usd"
-                href="#"
+                [routerLink]="['/orderdescription', item._id]"
                 title="Danger"
               ></a>
             </div>
             <div class="col-md-12">
-              order made on: 05/31/2014 by <a href="#">Jane Doe </a>
+              order made on: {{ item.orderPlaced }} by
+              <a href="#">{{ item.email }} </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-1">
           <img
             src="https://bootdey.com/img/Content/user_1.jpg"
@@ -200,7 +202,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="panel-footer">
       Put here some note for example: bootdey si a gallery of free bootstrap
