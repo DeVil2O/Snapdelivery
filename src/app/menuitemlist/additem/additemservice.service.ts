@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Http, Headers } from "@angular/http";
 @Injectable({
   providedIn: "root",
 })
@@ -31,5 +32,31 @@ export class AdditemserviceService {
     },
   ];
 
-  constructor() {}
+  constructor(private http: Http) {}
+  fetch() {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    return this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/menu/fetch?id=5fc3b440515bbd0004e1c8e0",
+
+      { headers: headers }
+    );
+  }
+  create() {
+    var headers = new Headers();
+    var obj = { menu: this.Items };
+    console.log(obj);
+
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+    return this.http.put(
+      "https://snapdeliveryapp.herokuapp.com/app/menu/update",
+      obj,
+      { headers: headers }
+    );
+  }
 }

@@ -72,17 +72,18 @@
 <br />
 
 <div class="container-fluid">
-  <div class="row" *ngFor="let review of list">
+  <div class="row">
     <div class="header_resto">
-      <h3>{{ review.name }}</h3>
+      <h3>{{ list.fullName }}</h3>
       <p>
-        {{ review.location.locality }}
+        {{ list.address }}
         <br />
-        {{ review.cuisines }}
+        {{ list.city }}
+        <!-- {{ review.cuisines }} -->
       </p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 image_height">
-      <img class="feature_image" src="{{ review.featured_image }}" />
+      <img class="feature_image" src="./../../assets/food.png" />
     </div>
     <div class="container">
       <mat-tab-group>
@@ -90,29 +91,24 @@
           <div class="row content_box">
             <div class="col-lg-4 col-md-4 col-sm-4">
               <h5>Cuisines</h5>
-              <p>{{ review.cuisines }}</p>
+              <!-- <p>{{ review.cuisines }}</p> -->
               <br />
               <h5>Ratings</h5>
               <p>
-                {{ review.user_rating.aggregate_rating }} <br />{{
-                  review.user_rating.rating_text
-                }}<br />
-                {{ review.user_rating.votes }} votes
+                15<br />5<br />
+                15 votes
               </p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
               <h5>Address</h5>
               <p>
-                {{ review.location.address }} <br />{{ review.location.city }}
-                <br />Landmark: {{ review.location.locality }}
+                {{ list.address }} <br />{{ list.city }} <br />Landmark:
+                {{ list.state }}
               </p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
               <h5>Average Cost</h5>
-              <p>
-                {{ review.currency }} {{ review.average_cost_for_two }} for two
-                people (approx.)
-              </p>
+              <p>15 126 for two people (approx.)</p>
               <p>Exclusive of applicable taxes and charges, if any</p>
               <p>Cash and Cards accepted</p>
             </div>
@@ -123,24 +119,18 @@
         <mat-tab label="Reviews">
           <div class="row content_box">
             <div class="col-lg-12 col-md-12 col-sm-12">
-              <h5>Reviews ({{ review.reviews_count }})</h5>
-              <mat-card
-                *ngFor="let userreview of review.user_reviews"
-                class="example-card"
-              >
+              <h5>Reviews (15)</h5>
+              <mat-card class="example-card">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{
-                    userreview.review.user.name
-                  }}</mat-card-title>
+                  <mat-card-title> userreview.review.user.name </mat-card-title>
                   <mat-card-subtitle>
-                    {{ userreview.review.user.foodie_level }}<br />{{
-                      userreview.review.review_time_friendly
-                    }}
+                    userreview.review.user.foodie_level <br />
+                    userreview.review.review_time_friendly
                   </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                  <p>{{ userreview.review.review_text }}</p>
+                  <p>userreview.review.review_text</p>
                 </mat-card-content>
               </mat-card>
             </div>
@@ -150,7 +140,7 @@
 
       <product-list-component [products]="products"></product-list-component>
 
-      <cart-component></cart-component>
+      <cart-component [restaurantId]="restaurantId"></cart-component>
     </div>
   </div>
 </div>

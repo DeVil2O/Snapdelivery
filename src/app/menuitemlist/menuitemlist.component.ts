@@ -10,11 +10,24 @@ export class MenuitemlistComponent implements OnInit {
   Items = [];
   showAdd: Boolean = false;
   constructor(private service: AdditemserviceService) {}
-
+  resultt: any;
   ngOnInit() {
-    this.Items = this.service.Items;
+    this.service.fetch().subscribe((res) => {
+      this.resultt = res.json();
+      console.log(this.resultt);
+      this.Items = this.resultt.menu.menu;
+    });
   }
+  result: any;
+  addMenu() {
+    // console.log(model);
+    this.service.create().subscribe((res) => {
+      this.result = res.json();
+      console.log(this.result);
+    });
 
+    // this.service.create();
+  }
   getItem(item) {
     this.service.counter++;
     this.Items.push({ ...item, id: this.service.counter });

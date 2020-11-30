@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs";
 import { Subject } from "rxjs";
 // import { BehaviorSubject } from "rxjs";
@@ -9,6 +10,7 @@ export class MySharedService {
   public cartItems = [];
   public products = new Subject();
 
+  constructor(private http: Http) {}
   getProducts(): Observable<any> {
     console.log("this.cartItems :", this.cartItems);
 
@@ -37,8 +39,18 @@ export class MySharedService {
     // Update Observable value
     this.products.next(this.cartItems);
   }
-  placeOrderFromCart() {
-    alert("Your Order Has been Placed");
+  placeOrderFromCart(obj) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    let responseRestaurant = this.http.post(
+      "https://snapdeliveryapp.herokuapp.com/app/order/create",
+      obj,
+      { headers: headers }
+    );
+    return responseRestaurant;
   }
 
   // Remove all the items added to the cart

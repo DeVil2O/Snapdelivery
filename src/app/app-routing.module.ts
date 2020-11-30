@@ -14,6 +14,7 @@ import { DetailComponent } from "./detail/detail.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ProfileupdateComponent } from "./profileupdate/profileupdate.component";
 import { OrderhistoryComponent } from "./orderhistory/orderhistory.component";
+import { OrderdescriptionComponent } from "./orderdescription/orderdescription.component";
 
 const routes: Routes = [
   { path: "customer/login", component: LoginComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: "detail/:id", component: DetailComponent },
   { path: "orders", component: OrderhistoryComponent },
   { path: "profile", component: ProfileupdateComponent },
+  { path: "orderdescription", component: OrderdescriptionComponent },
 
   { path: "**", component: PageNotFoundComponent },
 ];

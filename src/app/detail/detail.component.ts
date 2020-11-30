@@ -9,9 +9,9 @@ import { MyMainService } from "../main.service";
   styleUrls: ["./detail.component.css"],
 })
 export class DetailComponent implements OnInit {
-  title: string = "Food-e-Delicious";
+  title: string = "Snap Delivery";
   reviewList: any;
-  list: any = [];
+  list: any;
   cities: any;
   loading: boolean;
   selectedCityName: string = "";
@@ -20,6 +20,7 @@ export class DetailComponent implements OnInit {
   selectedRestoName;
   searchRestoList;
   products: any = [];
+  restaurantId: any = "";
   constructor(
     private foodservice: FoodserviceService,
     private route: ActivatedRoute,
@@ -32,9 +33,9 @@ export class DetailComponent implements OnInit {
     this.cities = this.foodservice.cities;
     this.getRestoDetail();
 
-    this.myMainService.getProducts().subscribe((data) => {
-      this.products = data.products;
-    });
+    // this.myMainService.getProducts().subscribe((data) => {
+    //   this.products = data.products;
+    // });
   }
 
   goToDashboard(e, cityName) {
@@ -42,25 +43,47 @@ export class DetailComponent implements OnInit {
   }
 
   async getRestoDetail() {
-    const id = +this.route.snapshot.paramMap.get("id");
-    console.log(id);
-    await this.foodservice.getRestaurantDetail(id).subscribe(
+    const id = this.route.snapshot.paramMap.get("id");
+    this.restaurantId = id;
+    await this.foodservice.getRestaurantDetails(id).subscribe(
       (data) => {
-        this.reviewList = data;
+        const result = data.json();
+        this.list = result.restaurant;
+        console.log(this.list);
+        this.myMainService.getProdDetails(this.list.menuId).subscribe(
+          (data) => {
+            const resultr = data.json();
+            // this.listt = resultr.restaurant;
+            this.products = resultr.menu.menu;
+            this.loading = false;
+            console.log(resultr);
+          },
+          (error) => {
+            this.router.navigate(["**"]);
+          }
+        );
       },
       (error) => {
         this.router.navigate(["**"]);
       }
     );
-    this.foodservice.getReview(id).subscribe(
-      (data) => {
-        this.reviewList = Object.assign(data, this.reviewList);
-        this.list.push(this.reviewList);
-        this.loading = false;
-      },
-      (error) => {
-        this.router.navigate(["**"]);
-      }
-    );
+    // await this.foodservice.getRestaurantDetail(id).subscribe(
+    //   (data) => {
+    //     this.reviewList = data;
+    //   },
+    //   (error) => {
+    //     this.router.navigate(["**"]);
+    //   }
+    // );
+    // this.foodservice.getReview(id).subscribe(
+    //   (data) => {
+    //     this.reviewList = Object.assign(data, this.reviewList);
+    //     this.list.push(this.reviewList);
+    //     this.loading = false;
+    //   },
+    //   (error) => {
+    //     this.router.navigate(["**"]);
+    //   }
+    // );
   }
 }

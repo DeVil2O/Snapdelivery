@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Renderer2 } from "@angular/core";
+import { Http, Headers } from "@angular/http";
 import { MySharedService } from "../shared.service";
 
 // import { MySharedService } from "../shared.service";
@@ -17,7 +18,7 @@ import { MySharedService } from "../shared.service";
             <div class="product-list__image">
               <img
                 class="card-img-top"
-                src="{{ product.image }}"
+                src="./../../assets/fried-egg.png"
                 alt="Card image cap"
               />
             </div>
@@ -53,7 +54,7 @@ import { MySharedService } from "../shared.service";
 
       .product-list__image {
         padding: 1em;
-        height: 250px;
+        height: 300px;
       }
 
       .product-list__image img {
@@ -69,7 +70,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private mySharedService: MySharedService
+    private mySharedService: MySharedService,
+    private http: Http
   ) {}
 
   ngOnInit() {
@@ -86,9 +88,6 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-
-  // Add item in cart on Button click
-  // ===============================
 
   addToCart(event, productId) {
     if (event.target.classList.contains("btn-success")) {

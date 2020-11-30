@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { cities } from "./cities";
-
+import { Headers, Http } from "@angular/http";
 const headers = new HttpHeaders().set(
   "user-key",
   "ffd3f600acd18930030fb7ccc5c035a5"
@@ -12,9 +12,39 @@ const headers = new HttpHeaders().set(
 })
 export class FoodserviceService {
   public baseUrl = "https://developers.zomato.com/api/v2.1/";
+  // public baseUrl = "https://snapdeliveryapp.herokuapp.com/app/user/login";
   cities = cities;
 
-  constructor(private httpService: HttpClient) {}
+  constructor(private httpService: HttpClient, private http: Http) {}
+
+  getRestaurantDetails(restoId) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    let responseRestaurant = this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/restaurant/get?id=" + restoId,
+      { headers: headers }
+    );
+    // console.log(responseRestaurant);
+    return responseRestaurant;
+  }
+
+  getCityestaurant(cityName) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    let responseCollection = this.http.get(
+      "https://snapdeliveryapp.herokuapp.com/app/restaurant/fetchAll?city=" +
+        cityName,
+      { headers: headers }
+    );
+    // console
+    return responseCollection;
+  }
 
   getCoordinates(lat, long) {
     let responseCoord = this.httpService.get(

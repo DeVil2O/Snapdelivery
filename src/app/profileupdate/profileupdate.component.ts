@@ -17,7 +17,6 @@ export class ProfileupdateComponent implements OnInit {
   ngOnInit() {
     this.sevice.fetch().subscribe((res) => {
       this.result = res.json();
-      // console.log(this.result.user);
       this.model.fullName = this.result.user.fullName;
       this.model.address = this.result.user.address;
       this.model.age = this.result.user.age;

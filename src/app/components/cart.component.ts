@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MySharedService } from "../shared.service";
 
 @Component({
@@ -9,7 +10,7 @@ import { MySharedService } from "../shared.service";
         <li *ngFor="let item of cartItems">
           <img
             class="card-img-top"
-            src="{{ item.image }}"
+            src="./../../assets/fried-egg.png"
             alt="Card image cap"
           />
           {{ item.name }}
@@ -90,8 +91,13 @@ import { MySharedService } from "../shared.service";
 export class CartComponent implements OnInit {
   cartItems;
   totalAmmount;
+  @Input() restaurantId: any = "";
 
-  constructor(private mySharedService: MySharedService) {}
+  constructor(
+    private mySharedService: MySharedService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.mySharedService.getProducts().subscribe((data) => {
@@ -110,6 +116,24 @@ export class CartComponent implements OnInit {
     this.mySharedService.emptryCart();
   }
   placeOrder() {
-    this.mySharedService.placeOrderFromCart();
+    const obj = { address: "", order: [], restaurantId: "" };
+    const Dummyobj = this.cartItems.map((item) => {
+      return { ...item, qty: 1 };
+    });
+    console.log(Dummyobj);
+    obj.address = localStorage.getItem("address");
+    obj.order = Dummyobj;
+    obj.restaurantId = this.restaurantId;
+    console.log(obj);
+    this.mySharedService.placeOrderFromCart(obj).subscribe(
+      (data) => {
+        const resultr = data.json();
+        console.log(resultr);
+        this.router.navigate([""]);
+      },
+      (error) => {
+        this.router.navigate([""]);
+      }
+    );
   }
 }

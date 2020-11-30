@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FoodserviceService } from "../foodservice.service";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-dashedboard",
@@ -33,6 +34,8 @@ export class DashedboardComponent implements OnInit {
     this.getAllDetails();
   }
 
+  getCities(city) {}
+
   async goToDashboard(e, cityName) {
     await this.router.navigate(["/dashedboard", cityName]);
     this.getAllDetails();
@@ -45,21 +48,31 @@ export class DashedboardComponent implements OnInit {
       this.router.navigate(["/detail", restoName]);
     }
   }
+  resultt: any;
 
   async getAllDetails() {
     this.loading = true;
     const id = this.route.snapshot.paramMap.get("id").toString();
-    this.cityName = id;
-    this.selectedCityName = this.cityName;
-    await this.foodservice.getCityId(id).subscribe(async (data) => {
-      for (let key in data) {
-        if (key == "location_suggestions") {
-          this.cityIdDetail = await data[key][0].id;
-          this.getcollectionDetails(this.cityIdDetail);
-        }
-      }
+
+    await this.foodservice.getCityestaurant(id).subscribe(async (data) => {
+      // alert(data);
+      console.log(data.json());
+      const result = data.json();
+      this.setDetails(result.restaurants);
     });
-    await this.getCategoriesDetails();
+
+    // console.log(result);
+    // this.cityName = id;
+    // this.selectedCityName = this.cityName;
+    // await this.foodservice.getCityId(id).subscribe(async (data) => {
+    //   for (let key in data) {
+    //     if (key == "location_suggestions") {
+    //       this.cityIdDetail = await data[key][0].id;
+    //       this.getcollectionDetails(this.cityIdDetail);
+    //     }
+    //   }
+    // });
+    // await this.getCategoriesDetails();
   }
 
   getcollectionDetails(cityId) {
@@ -90,5 +103,11 @@ export class DashedboardComponent implements OnInit {
       this.searchRestoList = this.restoList;
       this.loading = false;
     });
+  }
+
+  setDetails(data) {
+    this.restoList = data;
+    this.loading = false;
+    console.log(this.restoList);
   }
 }

@@ -5,7 +5,7 @@ import { Http, Headers } from "@angular/http";
   providedIn: "root",
 })
 export class UpdateserviceService {
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
   fetch() {
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -23,11 +23,19 @@ export class UpdateserviceService {
     headers.append("Content-Type", "application/json");
     const token = localStorage.getItem("token");
     headers.append("Authorization", "bearer " + token);
-
-    return this.http.put(
-      "https://snapdeliveryapp.herokuapp.com/app/user/update",
-      obj,
-      { headers: headers }
-    );
+    if (localStorage.getItem("isrest") == "false") {
+      return this.http.put(
+        "https://snapdeliveryapp.herokuapp.com/app/user/update",
+        obj,
+        { headers: headers }
+      );
+    }
+    else {
+      return this.http.put(
+        "https://snapdeliveryapp.herokuapp.com/app/restaurant/update",
+        obj,
+        { headers: headers }
+      );
+    }
   }
 }

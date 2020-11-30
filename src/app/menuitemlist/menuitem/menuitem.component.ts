@@ -10,7 +10,7 @@ export class MenuitemComponent implements OnInit {
   data: any = {};
   @Output() passItem = new EventEmitter();
 
-  constructor(private cartService:CartService ) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {}
 
@@ -18,11 +18,5 @@ export class MenuitemComponent implements OnInit {
     console.log(data);
     this.passItem.emit(data);
     this.data = {};
-  }
-  addItemToCart(data) {
-
-    this.cartService.addToCart(data);
-    window.alert("Your product has been added to the cart!");
-
   }
 }

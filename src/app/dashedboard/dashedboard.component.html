@@ -73,14 +73,14 @@
       </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div
         *ngFor="let category of categoriesDetail | slice: 0:10"
         class="flexbox"
       >
         <div class="p-2">{{ category.categories.name }}</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Trending Restaurant List -->
     <div class="row">
@@ -89,7 +89,7 @@
         style="padding-top: 30px"
       >
         <h3>List of Trending Restaurants</h3>
-        <p>{{ collection.description }}</p>
+        <!-- <p>{{ collection.description }}</p> -->
       </div>
     </div>
 
@@ -100,28 +100,19 @@
         animateOnScroll
         animationName="animated fadeIn"
       >
-        <a [routerLink]="['/detail', resto.restaurant.id]">
+        <a [routerLink]="['/detail', resto._id]">
           <mat-card-header>
-            <mat-card-title>{{ resto.restaurant.name }}</mat-card-title>
+            <mat-card-title>{{ resto.fullName }}</mat-card-title>
             <mat-card-subtitle>{{
               resto.restaurant.cuisines
             }}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="{{ resto.restaurant.featured_image }}" />
           <mat-card-content>
-            <div class="cost">
-              Average Cost for two people:
-              {{ resto.restaurant.average_cost_for_two }}
-            </div>
+            <div class="cost">Average Cost for two people: 400</div>
             <div class="post-meta">
-              <span class="star"
-                ><i class="fa fa-star"></i
-                >{{ resto.restaurant.user_rating.aggregate_rating }}</span
-              >
-              <span class="smile"
-                ><i class="fa fa-smile-o"></i
-                >{{ resto.restaurant.user_rating.rating_text }}</span
-              >
+              <span class="star"><i class="fa fa-star"></i>5</span>
+              <span class="smile"><i class="fa fa-smile-o"></i>5</span>
             </div>
           </mat-card-content>
         </a>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FoodserviceService } from "../foodservice.service";
+import { map } from "rxjs/operators";
+
 
 @Component({
   selector: "app-homed",
