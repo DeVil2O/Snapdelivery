@@ -31,6 +31,11 @@ export class ProfileupdateComponent implements OnInit {
   }
 
   updatePro(model) {
-    this.sevice.update(model);
+    console.log(model);
+    this.sevice.update(model).subscribe((res) => {
+      this.result = res.json();
+      console.log(this.result);
+    });
+    alert("Successfully Updated");
   }
 }

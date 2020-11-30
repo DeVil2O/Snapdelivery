@@ -19,6 +19,15 @@ export class UpdateserviceService {
     );
   }
   update(obj) {
-    alert(obj);
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+
+    return this.http.put(
+      "https://snapdeliveryapp.herokuapp.com/app/user/update",
+      obj,
+      { headers: headers }
+    );
   }
 }

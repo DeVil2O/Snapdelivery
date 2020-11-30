@@ -74,6 +74,9 @@ import { CartComponent } from "./components/cart.component";
 import { HeaderComponent } from "./components/header.component";
 import { ProductListComponent } from "./components/product-list.component";
 import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
+import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+import { RestorderlistComponent } from './restorderlist/restorderlist.component';
+import { OrderdescriptionComponent } from './orderdescription/orderdescription.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +108,9 @@ import { ProfileupdateComponent } from './profileupdate/profileupdate.component'
     HeaderComponent,
     ProductListComponent,
     ProfileupdateComponent,
+    OrderhistoryComponent,
+    RestorderlistComponent,
+    OrderdescriptionComponent,
   ],
   imports: [
     BrowserAnimationsModule,

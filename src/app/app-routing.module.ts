@@ -13,6 +13,7 @@ import { DashedboardComponent } from "./dashedboard/dashedboard.component";
 import { DetailComponent } from "./detail/detail.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ProfileupdateComponent } from "./profileupdate/profileupdate.component";
+import { OrderhistoryComponent } from "./orderhistory/orderhistory.component";
 
 const routes: Routes = [
   { path: "customer/login", component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "homed", component: HomedComponent },
   { path: "dashedboard/:id", component: DashedboardComponent },
   { path: "detail/:id", component: DetailComponent },
+  { path: "orders", component: OrderhistoryComponent },
   { path: "profile", component: ProfileupdateComponent },
 
   { path: "**", component: PageNotFoundComponent },
