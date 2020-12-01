@@ -43,26 +43,15 @@
                 ><strong>{{ item._id }}</strong></span
               >&nbsp; <span class="label label-info">Order Number</span><br />
               Total cost : &#x20B9; {{ item.totalPrice }} <br />
-              <!-- <a
-                data-placement="top"
-                class="btn btn-success btn-xs glyphicon glyphicon-ok"
-                href="#"
-                title="View"
-              ></a
-              >&nbsp;
-              <a
-                data-placement="top"
-                class="btn btn-danger btn-xs glyphicon glyphicon-trash"
-                href="#"
-                title="Danger"
-              ></a
-              >&nbsp; -->
               <a
                 data-placement="top"
                 class="btn btn-info btn-xs glyphicon glyphicon-usd"
                 [routerLink]="['/orderdescription', item._id]"
                 title="Danger"
               ></a>
+              <button class="btn-success">
+                <a [routerLink]="['/payfororder', item.totalPrice]">Pay</a>
+              </button>
             </div>
             <div class="col-md-12">
               order made on: {{ item.orderPlaced }} by

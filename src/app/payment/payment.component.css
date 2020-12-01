@@ -1,0 +1,13 @@
+.payform {
+  /* width: 80%; */
+  padding: 12px;
+  margin: 0 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid black;
+}
+
+.pb-5 {
+  text-align: center;
+}

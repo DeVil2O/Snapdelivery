@@ -37,7 +37,9 @@
     "mongoose": "*",
     "morgan": "*",
     "multer": "*",
+    "ngx-stripe": "^7.4.4",
     "rxjs": "6.0.0",
+    "stripe": "^8.126.0",
     "sweetalert2": "^7.24.4",
     "validator": "*",
     "zone.js": "^0.8.26"

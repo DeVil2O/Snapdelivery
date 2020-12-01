@@ -73,10 +73,12 @@ import { MySharedService } from "./shared.service";
 import { CartComponent } from "./components/cart.component";
 import { HeaderComponent } from "./components/header.component";
 import { ProductListComponent } from "./components/product-list.component";
-import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
-import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
-import { RestorderlistComponent } from './restorderlist/restorderlist.component';
-import { OrderdescriptionComponent } from './orderdescription/orderdescription.component';
+import { ProfileupdateComponent } from "./profileupdate/profileupdate.component";
+import { OrderhistoryComponent } from "./orderhistory/orderhistory.component";
+import { RestorderlistComponent } from "./restorderlist/restorderlist.component";
+import { OrderdescriptionComponent } from "./orderdescription/orderdescription.component";
+import { PaymentComponent } from "./payment/payment.component";
+import { NgxStripeModule } from "ngx-stripe";
 
 @NgModule({
   declarations: [
@@ -111,6 +113,7 @@ import { OrderdescriptionComponent } from './orderdescription/orderdescription.c
     OrderhistoryComponent,
     RestorderlistComponent,
     OrderdescriptionComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -155,6 +158,9 @@ import { OrderdescriptionComponent } from './orderdescription/orderdescription.c
     MatDialogModule,
     NgSelectModule,
     HttpClientModule,
+    NgxStripeModule.forRoot(
+      "pk_test_51Ht9C2HC9eHwothjsiqH7TzTvl0tmj83O3HDCVy7NmAG2Nxej2YYAK3Q9nzQyoSwq2x9VNk9Rs1OG5yehFBVrlRI00oQXVIQJT"
+    ),
   ],
   providers: [
     LoginserviceService,

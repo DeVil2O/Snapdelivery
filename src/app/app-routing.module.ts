@@ -16,7 +16,7 @@ import { ProfileupdateComponent } from "./profileupdate/profileupdate.component"
 import { OrderhistoryComponent } from "./orderhistory/orderhistory.component";
 import { OrderdescriptionComponent } from "./orderdescription/orderdescription.component";
 import { RestorderlistComponent } from "./restorderlist/restorderlist.component";
-
+import { PaymentComponent } from "./payment/payment.component";
 const routes: Routes = [
   { path: "customer/login", component: LoginComponent },
   { path: "restaurant/login", component: RestlogincomponentComponent },
@@ -38,6 +38,7 @@ const routes: Routes = [
     path: "restorderhistory",
     component: RestorderlistComponent,
   },
+  { path: "payfororder/:amount", component: PaymentComponent },
 
   { path: "**", component: PageNotFoundComponent },
 ];
