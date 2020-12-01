@@ -1,6 +1,5 @@
 FROM node:12
-WORKDIR /app
-ADD . /app
 RUN npm install
-EXPOSE 4200
-CMD npm start
+RUN npm install -g @angular/cli
+EXPOSE 5000
+CMD ng serve --port 5000 --host 0.0.0.0
