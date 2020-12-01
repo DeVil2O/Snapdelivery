@@ -1,4 +1,6 @@
-FROM node:15
+FROM node:12
+WORKDIR /app
+ADD . /app
 RUN npm install
-EXPOSE 3000
+EXPOSE 4200
 CMD npm start
