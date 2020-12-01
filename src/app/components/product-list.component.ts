@@ -18,7 +18,7 @@ import { MySharedService } from "../shared.service";
             <div class="product-list__image">
               <img
                 class="card-img-top"
-                src="./../../assets/fried-egg.png"
+                src="{{product.imgUrl}}"
                 alt="Card image cap"
               />
             </div>

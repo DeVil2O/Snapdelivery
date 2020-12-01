@@ -58,15 +58,13 @@ export class DashedboardComponent implements OnInit {
 
   async getSearchParam(model) {
     this.loading = true;
-    console.log(model.city);
-    console.log(model.dish);
-    const userdetails = "city=" + model.city + "&dish=" + model.dish;
     await this.foodservice
-      .getSearchDetails(model.city, model.dish)
+      .getSearchDetails(model.city, model.dish,model.start,model.end)
       .subscribe(async (data) => {
         console.log(data.json());
         const result = data.json();
         this.setDetails(result.restaurants);
+        model={};
       });
   }
 

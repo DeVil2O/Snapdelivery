@@ -86,6 +86,7 @@ export class PaymentComponent implements OnInit {
           }
         });
       } else if (result.error) {
+        console.log(result.error)
         this.paymentStatus = result.error.message;
       }
     });

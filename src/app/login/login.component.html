@@ -1,15 +1,12 @@
 <section id="book-a-table" class="book-a-table">
-  <div class="container">
-    <div class="section-title">
-      <h2 class="text-white">LOGIN</h2>
-    </div>
-
+  <div class="container mt-5">
     <form
       (ngSubmit)="f.form.valid && loginfun()"
       #f="ngForm"
       novalidate
-      class="php-email-form"
+      class="php-email-form mt-5"
     >
+      <h2 class="text-center">LOGIN</h2>
       <div class="form-row justify-content-center mt-5">
         <div
           class="col-md-8 form-group"
@@ -61,21 +58,21 @@
           confirm your reservation. Thank you!
         </div>
       </div>
-      <div class="form-row justify-content-center">
-        <div class="col-md-5 form-group">
-          <div class="text-center">
-            <button class="buttonsignup" [disabled]="loading">Login</button>
-          </div>
+      <div class="form-row justify-content-center align-items-center">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+          <!-- <div class="text-center"> -->
+          <button type="submit" class="buttonsignup" [disabled]="loading">
+            Login
+          </button>
+          <!-- </div> -->
+        </div>
+        <div class="col-md-3">
+          <a class="buttonsignup text-decoration-none" href="/customer/register"
+            >Register</a
+          >
         </div>
       </div>
     </form>
-    <br />
-    <div class="row form-group justify-content-center">
-      <div class="text-center">
-        <a href="/customer/register"
-          ><button class="buttonsignup">Register</button></a
-        >
-      </div>
-    </div>
   </div>
 </section>

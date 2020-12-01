@@ -54,9 +54,12 @@ export class DetailComponent implements OnInit {
           (data) => {
             const resultr = data.json();
             // this.listt = resultr.restaurant;
-            this.products = resultr.menu.menu;
-            this.loading = false;
-            console.log(resultr);
+            
+            this.products = resultr.menu.menu.map((item,index)=>{
+              return {...item,imgUrl:"./../../assets/fooditem/food-" + ((index%5)+1)+".jpg"}
+            })
+          this.loading = false;
+          
           },
           (error) => {
             this.router.navigate(["**"]);

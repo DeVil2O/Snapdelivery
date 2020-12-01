@@ -104,4 +104,17 @@ export class MySharedService {
       { headers: headers }
     );
   }
+  downloadOrder(id) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const token = localStorage.getItem("token");
+    headers.append("Authorization", "bearer " + token);
+    return this.http.get(
+      `https://snapdeliveryapp.herokuapp.com/app/order/invoice?id=${id}`,
+      { headers: headers }
+    );
+  
+  }
 }
+
+

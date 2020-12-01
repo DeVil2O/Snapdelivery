@@ -1,6 +1,9 @@
 .ordernow {
   /* background-image: url("./../../assets/img/slide/slide-3.jpg"); */
-  background-color: rgb(223, 204, 40);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../assets/searchBg.jpg");
+  background-size: cover;
+
   height: 100vh;
 }
 .homemainsearch {
@@ -30,8 +33,7 @@
 }
 
 .spacing {
-  height: 50px;
-  background: none;
+  height: 40px;
   border: none;
   color: white;
 }

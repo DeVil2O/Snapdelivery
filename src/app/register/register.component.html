@@ -1,8 +1,5 @@
 <section id="book-a-table" class="book-a-table">
-  <div class="container">
-    <div class="section-title">
-      <h2 class="text-white">REGISTRATION</h2>
-    </div>
+  <div class="container mb-1">
     <form
       name="form"
       (ngSubmit)="registerfun(model)"
@@ -10,6 +7,7 @@
       novalidate
       class="php-email-form"
     >
+      <h2 class="text-center">REGISTRATION</h2>
       <div class="form-row justify-content-center mt-5">
         <div
           class="col-md-9 form-group"
@@ -31,7 +29,7 @@
       </div>
       <div class="form-row justify-content-center">
         <div
-          class="col-md-9 form-group"
+          class="col-md-5 form-group"
           [ngClass]="{ 'has-error': f.submitted && !email.valid }"
         >
           <!-- <label for="email">Email</label> -->
@@ -48,30 +46,8 @@
             Email is required
           </div>
         </div>
-      </div>
-      <div class="form-row justify-content-center">
         <div
-          class="col-md-9 form-group"
-          [ngClass]="{ 'has-error': f.submitted && !mobileNumber.valid }"
-        >
-          <!-- <label for="mobileNumber">mobileNumber</label> -->
-          <input
-            type="number"
-            class="form-control"
-            name="mobileNumber"
-            [(ngModel)]="model.mobileNumber"
-            #mobileNumber="ngModel"
-            placeholder="mobileNNumber"
-            required
-          />
-          <div *ngIf="f.submitted && !mobileNumber.valid" class="help-block">
-            mobileNumber is required
-          </div>
-        </div>
-      </div>
-      <div class="form-row justify-content-center">
-        <div
-          class="col-md-9 form-group"
+          class="col-md-4 form-group"
           [ngClass]="{ 'has-error': f.submitted && !password.valid }"
         >
           <input
@@ -85,6 +61,26 @@
           />
           <div *ngIf="f.submitted && !password.valid" class="help-block">
             Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div
+          class="col-md-9 form-group"
+          [ngClass]="{ 'has-error': f.submitted && !mobileNumber.valid }"
+        >
+          <!-- <label for="mobileNumber">mobileNumber</label> -->
+          <input
+            type="number"
+            class="form-control"
+            name="mobileNumber"
+            [(ngModel)]="model.mobileNumber"
+            #mobileNumber="ngModel"
+            placeholder="Mobile Number"
+            required
+          />
+          <div *ngIf="f.submitted && !mobileNumber.valid" class="help-block">
+            mobileNumber is required
           </div>
         </div>
       </div>
@@ -200,11 +196,16 @@
         </div>
       </div>
 
-      <div class="form-row justify-content-center">
-        <div class="col-md-5 form-group">
+      <div class="form-row justify-content-center align-items-center">
+        <div class="col-md-3">
           <div class="text-center">
-            <button class="buttonsignup">Register</button>
+            <button type="submit" class="buttonsignup">Register</button>
           </div>
+        </div>
+        <div class="col-md-3">
+          <a class="buttonsignup text-decoration-none" href="/customer/login"
+            >Login</a
+          >
         </div>
       </div>
     </form>

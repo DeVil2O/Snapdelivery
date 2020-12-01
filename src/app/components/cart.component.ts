@@ -10,7 +10,7 @@ import { MySharedService } from "../shared.service";
         <li *ngFor="let item of cartItems">
           <img
             class="card-img-top"
-            src="./../../assets/fried-egg.png"
+            src="{{item.imgUrl}}"
             alt="Card image cap"
           />
           {{ item.name }}
