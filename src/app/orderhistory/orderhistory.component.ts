@@ -31,6 +31,7 @@ export class OrderhistoryComponent implements OnInit {
       });
     });
   }
+  //
   download( id) {
        
   
