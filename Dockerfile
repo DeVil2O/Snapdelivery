@@ -1,7 +1,9 @@
-FROM node:12
+FROM node:latest as node
 WORKDIR /app
-ADD ./app
+COPY . .
 RUN npm install
 RUN npm install -g @angular/cli
-EXPOSE 5000
-CMD ng serve --port 5000
+RUN ng build --prod
+
+FROM nginx:alpine
+COPY --from=node /app/dist/premium /usr/share/nginx/html
